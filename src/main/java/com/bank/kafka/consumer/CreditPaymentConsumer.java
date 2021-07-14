@@ -6,25 +6,16 @@ import org.springframework.stereotype.Component;
 
 import com.bank.model.Purchase;
 import com.bank.service.PurchaseService;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
-import reactor.core.Disposable;
-
-@Component
+//@Component
 public class CreditPaymentConsumer {
 	
 	@Autowired
 	private PurchaseService purchaseService;
 		
-	ObjectMapper objectMapper = new ObjectMapper();
-	
-	@KafkaListener( groupId = "credit-consumer-group",topics = "purchase-topic")
-	public Disposable retrieveCreatedPurchase(String data) throws Exception {
-		
-		Purchase purchase = objectMapper.readValue(data, Purchase.class);
-		
-		return (Disposable)purchaseService.update(purchase);
-				
-      }
+	@KafkaListener( groupId = "credit-payment-publish-yanki",topics = "credit-payment-topic")
+	public Purchase retrieveCreatedPurchase(Purchase purchase) throws Exception {
+	return purchaseService.update(purchase);
+     }
 	
 }

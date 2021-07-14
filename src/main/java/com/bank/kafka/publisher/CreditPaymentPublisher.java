@@ -15,8 +15,7 @@ public class CreditPaymentPublisher {
     
 
     @Autowired
-	private KafkaTemplate<String, CreditPayment> kafkaTemplate;
-
+    private KafkaTemplate<String,Object> kafkaTemplate;
 	
 	private String topic = "credit-payment-topic";
 

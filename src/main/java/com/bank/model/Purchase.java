@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @RedisHash("Purchase")
 public class Purchase implements Serializable {
 
-  private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 444187110852787782L;
     @Id
 	private String id;
 	private String operationNumber;
