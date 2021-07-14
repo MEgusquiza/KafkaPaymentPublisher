@@ -1,12 +1,12 @@
 server:
-  port: 8085
+  port: 8084
   
 #spring: 
-# kafka:
+ #kafka:
  #   producer:
       # Important!
       # In case you publish to a 'dead letter topic' you consumer application becomes
       # a producer as well! So you need to specify the producer properties!
-  #    key-serializer: org.apache.kafka.common.serialization.StringSerializer
-  #    value-serializer: org.apache.kafka.common.serialization.ByteArraySerializer
+#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      value-serializer: org.apache.kafka.common.serialization.ByteArraySerializer
 

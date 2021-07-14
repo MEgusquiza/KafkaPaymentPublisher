@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 import com.bank.model.CreditPayment;
-
+import com.bank.utils.yankiUtils;
 
 @Component
 public class CreditPaymentPublisher {
@@ -17,13 +17,11 @@ public class CreditPaymentPublisher {
     @Autowired
     private KafkaTemplate<String,Object> kafkaTemplate;
 	
-	private String topic = "credit-payment-topic";
-
 	public void sendCreditPaymentTransactionTopic(CreditPayment creditPayment) {
 		
 	   Logger.info("Payment published");
 	
-	   kafkaTemplate.send(topic, creditPayment);
+	   kafkaTemplate.send(yankiUtils.PUBLISH_PAYMENT_TOPIC, creditPayment);
 		
 	}
 	

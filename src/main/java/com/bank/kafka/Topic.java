@@ -2,7 +2,7 @@ package com.bank.kafka;
 
 import java.util.HashMap;
 import java.util.Map;
-
+import com.bank.utils.yankiUtils;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
@@ -31,7 +31,7 @@ public class Topic {
       logger.info("Create topic, credit-payment-topic");
       
 		return TopicBuilder
-				.name("credit-payment-topic")
+				.name(yankiUtils.PUBLISH_PAYMENT_TOPIC)
 				.partitions(1)
 				.replicas(1)
 				.build();

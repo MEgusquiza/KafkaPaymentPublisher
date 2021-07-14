@@ -10,6 +10,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.repository.configuration.EnableRedisRepositories;
 import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
+import com.bank.utils.yankiUtils;
 
 
 
@@ -23,8 +24,8 @@ public class RedisConfig {
   public JedisConnectionFactory connectionFactory() {
       logger.info("Config server redis db.");
       RedisStandaloneConfiguration configuration = new RedisStandaloneConfiguration();
-      configuration.setHostName("localhost");
-      configuration.setPort(6379);
+      configuration.setHostName(yankiUtils.SERVER_REDIS);
+      configuration.setPort(yankiUtils.PORT_REDIS);
       return new JedisConnectionFactory(configuration);
   }
 

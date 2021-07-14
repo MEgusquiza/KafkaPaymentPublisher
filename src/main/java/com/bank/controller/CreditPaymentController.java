@@ -23,7 +23,7 @@ import com.bank.service.CreditPaymentService;
 
 
 @RestController
-@RequestMapping("/credit")
+@RequestMapping("/payment")
 @EnableCaching
 public class CreditPaymentController {
 
@@ -38,8 +38,7 @@ public class CreditPaymentController {
 	     @PostMapping
 	     public CreditPayment saveCreditPayment(@RequestBody CreditPayment creditPayment) {
 	     logger.info("Send credit payment to topic.");
-	     
-	     creditPaymentPublisher.sendCreditPaymentTransactionTopic(creditPayment);
+         creditPaymentPublisher.sendCreditPaymentTransactionTopic(creditPayment);
 	     return service.save(creditPayment);
 	     }
 

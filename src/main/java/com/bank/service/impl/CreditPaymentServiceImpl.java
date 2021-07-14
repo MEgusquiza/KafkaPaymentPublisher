@@ -22,7 +22,7 @@ public class CreditPaymentServiceImpl implements CreditPaymentService{
          
  	     @Override
 	     public CreditPayment findById(int id) {
-	     System.out.println("called findProductById() from DB");
+	     System.out.println("called findPaymenttById() from DB");
 	     return (CreditPayment) template.opsForHash().get(HASH_KEY,id);
          }
 
@@ -45,7 +45,7 @@ public class CreditPaymentServiceImpl implements CreditPaymentService{
 	    @Override
 	    public String delete(int id) {
 	      template.opsForHash().delete(HASH_KEY,id);
-	        return "product removed !!";
+	        return "payment removed !!";
 	    }
 
 }
